@@ -27,6 +27,7 @@ body, .main {
 .stFileUploader {
   border: 2px dashed #004B59 !important;
   background-color: #ffffff;
+  color: black;
   padding: 1rem;
   border-radius: 8px;
   box-shadow: 0 3px 5px rgba(0, 0, 0, 0.05);
