@@ -1,40 +1,59 @@
-/* Fundo principal do app */
+/* Fonte principal */
 body, .main {
-    background: linear-gradient(to bottom right, #f8fafc, #f1f5f9);
-    font-family: 'Arial', sans-serif;
+  background: linear-gradient(to bottom right, #f8fafc, #f1f5f9);
+  font-family: 'Segoe UI', sans-serif;
+  color: #004B59;
 }
 
-/* Botões */
+/* Botões personalizados */
 .stButton>button {
-    background: linear-gradient(to right, #0B5563, #0d6478);
-    color: white;
-    border: none;
-    padding: 0.75rem 2rem;
-    border-radius: 0.5rem;
-    font-weight: 600;
+  background: linear-gradient(to right, #004B59, #DF667E);
+  color: white;
+  border: none;
+  padding: 0.75rem 2rem;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
 }
 
-/* File uploader */
+.stButton>button:hover {
+  background: linear-gradient(to right, #DF667E, #FFC917);
+  transform: scale(1.03);
+  cursor: pointer;
+}
+
+/* Área de upload */
 .stFileUploader {
-    border: 2px dashed #0B5563 !important;
-    background-color: #ffffff;
-    padding: 1rem;
-    border-radius: 8px;
+  border: 2px dashed #004B59 !important;
+  background-color: #ffffff;
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.05);
 }
 
 /* Mensagens de sucesso */
 .success-box {
-    background: linear-gradient(to right, #def7ec, #f0fff4);
-    padding: 1rem;
-    border-radius: 0.5rem;
-    border-left: 4px solid #0B5563;
-    margin: 1rem 0;
+  background: linear-gradient(to right, #d9f9f3, #e0ffe9);
+  padding: 1rem;
+  border-radius: 0.5rem;
+  border-left: 4px solid #004B59;
+  margin: 1rem 0;
+  font-weight: 500;
+  color: #004B59;
 }
 
 /* Rodapé */
 .footer {
-    text-align: center;
-    color: #94a3b8;
-    font-size: 0.875rem;
-    padding: 2rem 0;
+  text-align: center;
+  color: #94a3b8;
+  font-size: 0.875rem;
+  padding: 2rem 0;
+  border-top: 2px solid #DF667E;
+}
+
+/* Ícones e textos importantes */
+h1, h2, h3, .highlight {
+  color: #004B59;
+  font-weight: 700;
 }
