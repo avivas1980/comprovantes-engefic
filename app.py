@@ -197,7 +197,8 @@ def extrair_dados_boleto(texto_layout, texto_simples):
         valor_bruto = match_valor.group(1).strip()
         valor = f"R$ {valor_bruto}"
     
-    match_data = re.search(r'Data de pagamento:\s*(\d{2}/\d{2}/\d{4})', texto_simples, re.IGNORECASE)
+    match_data = re.search(r'(?:\(=\)\s*)?Data de pagamento:\s*(\d{2}/\d{2}/\d{4})', texto_simples, re.IGNORECASE)
+
     if match_data:
         data = match_data.group(1).replace('/', '-')
     
@@ -435,7 +436,8 @@ if uploaded_file is not None:
                             nome_entidade, valor_pgto, data_pgto = extrair_dados_inteligente(texto_layout, texto_simples)
                             
                             contador = f"{i+1:02d}"
-                            novo_nome = f"{nome_entidade}_{valor_pgto}_{data_pgto}_{contador}.pdf"
+                            novo_nome = f"{nome_entidade}_{valor_pgto}_{data_pgto}_{contador}_Comp_pgto.pdf"
+
                             novo_nome = limpar_nome_arquivo(novo_nome)
                             
                             pdf_writer = PyPDF2.PdfWriter()
