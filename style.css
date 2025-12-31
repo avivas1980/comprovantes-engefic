@@ -324,5 +324,4 @@ footer {visibility: hidden;}
   font-weight: 500;
   pointer-events: none;
 }
-</style>
-""", unsafe_allow_html=True)
+

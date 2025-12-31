@@ -187,7 +187,8 @@ def extrair_dados_boleto(texto_layout, texto_simples):
     if not match_valor:
         match_valor = re.search(r'48\.042\.150/0001-94\s+([\d\.,]+)', texto_simples, re.IGNORECASE)
     if not match_valor:
-        match_valor = re.search(r'\d{2}\.\d{3}\.\d{3}/\d{4}-\d{2}\s+([\d\.,]+)\s+Data de pagamento', texto_simples, re.IGNORECASE)
+        match_valor = re.search(r'\d{2}\.\d{3}\.\d{4}-\d{2}\s+([\d.,]+)\s+[\(=)]*\s*Data de pagamento', texto_simples, re.IGNORECASE)
+
     if not match_valor:
         busca_area = re.search(r'Valor do pagamento.*?(\d{1,3}(?:\.\d{3})*,\d{2})', texto_simples, re.IGNORECASE | re.DOTALL)
         if busca_area:
