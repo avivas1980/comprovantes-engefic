@@ -198,7 +198,8 @@ def extrair_dados_boleto(texto_layout, texto_simples):
         valor_bruto = match_valor.group(1).strip()
         valor = f"R$ {valor_bruto}"
     
-    match_data = re.search(r'(?:\(=\)\s*)?Data de pagamento:\s*(\d{2}/\d{2}/\d{4})', texto_simples, re.IGNORECASE)
+    match_data = re.search(r'(?:=|:)?\s*Data de pagamento:\s*(\d{2}/\d{2}/\d{4})', texto_simples, re.IGNORECASE)
+
 
     if match_data:
         data = match_data.group(1).replace('/', '-')
