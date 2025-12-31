@@ -197,20 +197,13 @@ def extrair_dados_boleto(texto_layout, texto_simples):
     if match_valor:
         valor_bruto = match_valor.group(1).strip()
         valor = f"R$ {valor_bruto}"
-    
-   # --- CORREÇÃO APLICADA AQUI ---
-    # Procura "Data de pagamento" ignorando os simbolos (=) anteriores.
-    match_data = re.search(r'Data de pagamento[:\s]+(\d{2}/\d{2}/\d{4})', texto_simples, re.IGNORECASE)
+
+    match_data = re.search(r'(?:=|:)?\s*Data de pagamento:\s*(\d{2}/\d{2}/\d{4})', texto_simples, re.IGNORECASE)
 
     if match_data:
         data = match_data.group(1).replace('/', '-')
-    else:
-        # Fallback de segurança: Se falhar (ex: layout quebrado), tenta achar a data
-        # se ela aparecer logo após a palavra "pagamento" solta no texto.
-        match_fallback = re.search(r'pagamento.*?(\d{2}/\d{2}/\d{4})', texto_simples, re.IGNORECASE | re.DOTALL)
-        if match_fallback:
-             data = match_fallback.group(1).replace('/', '-')
-             return nome, valor, data
+    return nome, valor, data
+
 
 def extrair_dados_transferencia(texto_layout, texto_simples):
     nome = "Comprovante"
