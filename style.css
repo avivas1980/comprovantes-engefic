@@ -1,60 +1,328 @@
-/* Fonte principal */
-body, .main {
-  background: linear-gradient(to bottom right, #f8fafc, #f1f5f9);
-  font-family: 'Segoe UI', sans-serif;
-  color: #004B59;
+
+/* =====================================================
+   ENGEFIC ENGENHARIA - IDENTIDADE VISUAL
+   Cores: Rosa Coral #E65F74 | Amarelo #FFC30C | Teal #03566C
+   ===================================================== */
+
+/* ===== CONFIGURAÇÃO GLOBAL ===== */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+:root {
+  --engefic-rosa: #E65F74;
+  --engefic-amarelo: #FFC30C;
+  --engefic-teal: #03566C;
+  --engefic-teal-light: #0d7589;
+  --cinza-claro: #f8fafc;
+  --cinza-medio: #64748b;
+  --branco: #ffffff;
+  --texto-escuro: #1e293b;
 }
 
-/* Botões personalizados */
-.stButton>button {
-  background: linear-gradient(to right, #004B59, #DF667E);
-  color: white;
-  border: none;
-  padding: 0.75rem 2rem;
-  border-radius: 0.5rem;
+body, .main, [data-testid="stAppViewContainer"] {
+  background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+  font-family: 'Inter', 'Segoe UI', sans-serif;
+  color: var(--texto-escuro);
+}
+
+/* ===== PADRÃO DE TIJOLINHOS (IDENTIDADE) ===== */
+.stApp::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 8px;
+  background: linear-gradient(90deg, 
+    var(--engefic-rosa) 0%, 
+    var(--engefic-rosa) 33%, 
+    var(--engefic-amarelo) 33%, 
+    var(--engefic-amarelo) 66%, 
+    var(--engefic-teal) 66%, 
+    var(--engefic-teal) 100%);
+  z-index: 999;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+/* ===== HEADER ===== */
+header[data-testid="stHeader"] {
+  background: var(--branco);
+  border-bottom: 3px solid var(--cinza-claro);
+  box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+}
+
+/* ===== TÍTULOS ===== */
+h1 {
+  color: var(--engefic-teal) !important;
+  font-weight: 700 !important;
+  font-size: 2.5rem !important;
+  margin-bottom: 0.5rem !important;
+  letter-spacing: -0.5px;
+}
+
+h2 {
+  color: var(--engefic-teal) !important;
+  font-weight: 600 !important;
+  font-size: 1.75rem !important;
+  margin-top: 2rem !important;
+}
+
+h3 {
+  color: var(--engefic-rosa) !important;
+  font-weight: 600 !important;
+  font-size: 1.25rem !important;
+}
+
+.highlight, strong {
+  color: var(--engefic-teal);
   font-weight: 600;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* ===== BOTÕES PRINCIPAIS ===== */
+.stButton > button {
+  background: linear-gradient(135deg, var(--engefic-teal) 0%, var(--engefic-teal-light) 100%);
+  color: var(--branco) !important;
+  border: none;
+  padding: 0.875rem 2.5rem;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 1rem;
+  letter-spacing: 0.3px;
+  box-shadow: 0 4px 12px rgba(3, 86, 108, 0.25);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  text-transform: none;
+}
+
+.stButton > button:hover {
+  background: linear-gradient(135deg, var(--engefic-rosa) 0%, #f07088 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(230, 95, 116, 0.35);
+}
+
+.stButton > button:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 8px rgba(3, 86, 108, 0.2);
+}
+
+/* Botão de download (destaque amarelo) */
+.stDownloadButton > button {
+  background: linear-gradient(135deg, var(--engefic-amarelo) 0%, #ffd14d 100%) !important;
+  color: var(--texto-escuro) !important;
+  font-weight: 700 !important;
+  box-shadow: 0 4px 12px rgba(255, 195, 12, 0.3);
+}
+
+.stDownloadButton > button:hover {
+  background: linear-gradient(135deg, #ffd14d 0%, var(--engefic-amarelo) 100%) !important;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(255, 195, 12, 0.4);
+}
+
+/* ===== ÁREA DE UPLOAD ===== */
+[data-testid="stFileUploader"] {
+  background: var(--branco);
+  border: 3px dashed var(--engefic-teal) !important;
+  border-radius: 16px;
+  padding: 2rem;
   transition: all 0.3s ease;
 }
 
-.stButton>button:hover {
-  background: linear-gradient(to right, #DF667E, #FFC917);
-  transform: scale(1.03);
-  cursor: pointer;
+[data-testid="stFileUploader"]:hover {
+  border-color: var(--engefic-rosa) !important;
+  background: linear-gradient(135deg, #fef2f5 0%, #fff9e6 100%);
+  box-shadow: 0 4px 16px rgba(230, 95, 116, 0.1);
 }
 
-/* Área de upload */
-.stFileUploader {
-  border: 2px dashed #004B59 !important;
-  background-color: #ffffff;
-  color: black;
-  padding: 1rem;
-  border-radius: 8px;
-  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.05);
+[data-testid="stFileUploader"] label {
+  color: var(--engefic-teal) !important;
+  font-weight: 600 !important;
+  font-size: 1.1rem !important;
 }
 
-/* Mensagens de sucesso */
-.success-box {
-  background: linear-gradient(to right, #d9f9f3, #e0ffe9);
-  padding: 1rem;
-  border-radius: 0.5rem;
-  border-left: 4px solid #004B59;
-  margin: 1rem 0;
+/* ===== CARDS E ALERTAS ===== */
+.stAlert, [data-testid="stAlert"] {
+  background: var(--branco) !important;
+  border-left: 5px solid var(--engefic-rosa);
+  border-radius: 12px;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+  padding: 1.25rem !important;
+}
+
+div[data-baseweb="notification"] {
+  background: linear-gradient(135deg, #d1fae5 0%, #e0ffe9 100%) !important;
+  border-left: 5px solid #10b981 !important;
+  color: #065f46 !important;
+  border-radius: 12px;
+}
+
+/* ===== BARRA DE PROGRESSO ===== */
+.stProgress > div > div {
+  background: linear-gradient(90deg, 
+    var(--engefic-rosa) 0%, 
+    var(--engefic-amarelo) 50%, 
+    var(--engefic-teal) 100%) !important;
+  height: 12px !important;
+  border-radius: 6px;
+}
+
+[data-testid="stProgressBar"] > div {
+  background-color: var(--cinza-claro) !important;
+  border-radius: 6px;
+}
+
+/* ===== EXPANDER (DETALHES) ===== */
+.streamlit-expanderHeader {
+  background: linear-gradient(135deg, #fef2f5 0%, #fff9e6 100%) !important;
+  border: 2px solid var(--cinza-claro);
+  border-radius: 12px !important;
+  color: var(--engefic-teal) !important;
+  font-weight: 600 !important;
+  padding: 1rem 1.5rem !important;
+  transition: all 0.3s ease;
+}
+
+.streamlit-expanderHeader:hover {
+  background: linear-gradient(135deg, var(--engefic-rosa) 0%, var(--engefic-amarelo) 100%) !important;
+  color: var(--branco) !important;
+  border-color: var(--engefic-rosa);
+  box-shadow: 0 4px 12px rgba(230, 95, 116, 0.2);
+}
+
+/* ===== SPINNER (LOADING) ===== */
+.stSpinner > div {
+  border-color: var(--engefic-teal) !important;
+  border-right-color: transparent !important;
+}
+
+/* ===== INPUTS ===== */
+input, textarea, select {
+  border: 2px solid var(--cinza-claro) !important;
+  border-radius: 10px !important;
+  padding: 0.75rem !important;
+  font-size: 1rem !important;
+  transition: all 0.3s ease;
+  background: var(--branco) !important;
+  color: var(--texto-escuro) !important;
+}
+
+input:focus, textarea:focus, select:focus {
+  border-color: var(--engefic-teal) !important;
+  box-shadow: 0 0 0 3px rgba(3, 86, 108, 0.1) !important;
+  outline: none !important;
+}
+
+/* ===== SIDEBAR ===== */
+[data-testid="stSidebar"] {
+  background: linear-gradient(180deg, var(--branco) 0%, #f8fafc 100%);
+  border-right: 3px solid var(--cinza-claro);
+}
+
+[data-testid="stSidebar"] h1, 
+[data-testid="stSidebar"] h2 {
+  color: var(--engefic-teal) !important;
+}
+
+/* ===== TABELAS ===== */
+table {
+  border-collapse: separate !important;
+  border-spacing: 0 !important;
+  border-radius: 12px !important;
+  overflow: hidden;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+}
+
+thead tr {
+  background: linear-gradient(135deg, var(--engefic-teal) 0%, var(--engefic-teal-light) 100%) !important;
+}
+
+thead th {
+  color: var(--branco) !important;
+  font-weight: 600 !important;
+  padding: 1rem !important;
+  text-align: left !important;
+}
+
+tbody tr:nth-child(even) {
+  background-color: #f8fafc !important;
+}
+
+tbody tr:hover {
+  background: linear-gradient(135deg, #fef2f5 0%, #fff9e6 100%) !important;
+  transition: all 0.2s ease;
+}
+
+tbody td {
+  padding: 0.875rem 1rem !important;
+  color: var(--texto-escuro) !important;
+}
+
+/* ===== SCROLLBAR ===== */
+::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--cinza-claro);
+  border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, var(--engefic-teal) 0%, var(--engefic-rosa) 100%);
+  border-radius: 6px;
+  border: 2px solid var(--cinza-claro);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, var(--engefic-rosa) 0%, var(--engefic-amarelo) 100%);
+}
+
+/* ===== ANIMAÇÕES ===== */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.stApp > div {
+  animation: fadeIn 0.5s ease-out;
+}
+
+/* ===== RESPONSIVIDADE ===== */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 1.875rem !important;
+  }
+  
+  .stButton > button {
+    padding: 0.75rem 1.5rem;
+    font-size: 0.938rem;
+  }
+  
+  [data-testid="stFileUploader"] {
+    padding: 1.5rem;
+  }
+}
+
+/* ===== REMOVER ELEMENTOS PADRÃO ===== */
+#MainMenu {visibility: hidden;}
+footer {visibility: hidden;}
+
+/* ===== MARCA D'ÁGUA ===== */
+.stApp::after {
+  content: 'Engefic Engenharia';
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  font-size: 0.75rem;
+  color: var(--cinza-medio);
+  opacity: 0.5;
   font-weight: 500;
-  color: #004B59;
+  pointer-events: none;
 }
-
-/* Rodapé */
-.footer {
-  text-align: center;
-  color: #94a3b8;
-  font-size: 0.875rem;
-  padding: 2rem 0;
-  border-top: 2px solid #DF667E;
-}
-
-/* Ícones e textos importantes */
-h1, h2, h3, .highlight {
-  color: #004B59;
-  font-weight: 700;
-}
+</style>
+""", unsafe_allow_html=True)
