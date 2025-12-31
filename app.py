@@ -208,8 +208,9 @@ def extrair_dados_boleto(texto_layout, texto_simples):
         # Fallback de segurança: Se falhar (ex: layout quebrado), tenta achar a data
         # se ela aparecer logo após a palavra "pagamento" solta no texto.
         match_fallback = re.search(r'pagamento.*?(\d{2}/\d{2}/\d{4})', texto_simples, re.IGNORECASE | re.DOTALL)
-    if match_fallback:
+        if match_fallback:
              data = match_fallback.group(1).replace('/', '-')
+             return nome, valor, data
 
 def extrair_dados_transferencia(texto_layout, texto_simples):
     nome = "Comprovante"
@@ -514,3 +515,5 @@ st.markdown("""
         © 2025 Engefic Engenharia - Sistema de Gestão de Comprovantes
     </div>
 """, unsafe_allow_html=True)
+
+
