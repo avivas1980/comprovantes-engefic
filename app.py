@@ -202,6 +202,12 @@ def extrair_dados_boleto(texto_layout, texto_simples):
 
     if match_data:
        data = match_data.group(1).replace('/', '-')
+    else:
+    # Tenta extrair a data da linha "Operação efetuada em"
+         match_operacao = re.search(r'Operação efetuada em\s*(\d{2}/\d{2}/\d{4})', texto_simples, re.IGNORECASE)
+         if match_operacao:
+           data = match_operacao.group(1).replace('/', '-')
+
     return nome, valor, data
 
 def extrair_dados_transferencia(texto_layout, texto_simples):
