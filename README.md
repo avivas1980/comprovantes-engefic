@@ -1,3 +1,30 @@
+# 📄 Extrator de Dados de Comprovantes Bancários
+
+Um script inteligente em Python que **lê comprovantes bancários em PDF**, extrai informações importantes como **razão social**, **valor** e **data de pagamento**, mesmo com variações no layout dos boletos. Tudo isso de forma automática — com os arquivos já **renomeados** no padrão certo!
+
+---
+
+## 🚀 Funcionalidades
+
+✅ Identifica a Razão Social (nome da empresa)  
+✅ Extrai o valor do pagamento com precisão  
+✅ Detecta a data de pagamento mesmo quando aparece como `(=)`, `:` ou em outra linha ("Operação efetuada em")  
+✅ Renomeia os arquivos PDF com as informações extraídas  
+✅ Suporte a vários tipos de comprovantes (boleto, TED, PIX, etc.)
+
+---
+
+## 🧠 Como Funciona
+
+1. O script analisa o texto dos PDFs.
+2. Usa **expressões regulares (Regex)** para identificar:
+   - Razão Social
+   - Valor pago
+   - Data do pagamento
+3. Se a data estiver no formato estranho (como `(=) Data de pagamento`) ou em outra linha, ele ainda encontra!
+4. O nome do arquivo é atualizado automaticamente para:
+
+
 # Sistema de Comprovantes - Engefic Engenharia
 
 Sistema automatizado para renomeação de comprovantes bancários do Itaú.
