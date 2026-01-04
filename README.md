@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="Banner_Projeto.png" alt="Banner do Projeto" width="100%">
+</p>
+
 # 📄 Extrator de Dados de Comprovantes Bancários
 
 Um script inteligente em Python que **lê comprovantes bancários em PDF**, extrai informações importantes como **razão social**, **valor** e **data de pagamento**, mesmo com variações no layout dos boletos. Tudo isso de forma automática — com os arquivos já **renomeados** no padrão certo!
